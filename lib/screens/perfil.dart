@@ -123,9 +123,11 @@ Navigator.pushReplacement(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Theme.of(context).colorScheme.primary,
                     padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                    textStyle: const TextStyle(color: Colors.white, fontSize: 18),
                   ),
                   onPressed: () {},
                   child: const Text('Editar Perfil'),
+                  
                 ),
               ],
             ),
