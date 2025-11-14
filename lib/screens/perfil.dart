@@ -5,6 +5,8 @@ import 'package:clase6/screens/chats.dart';
 import 'package:clase6/screens/products.dart';
 import 'package:clase6/screens/map_screen.dart';
 
+
+
 class Perfil extends StatefulWidget {
   const Perfil({super.key});
 
@@ -89,12 +91,12 @@ Navigator.pushReplacement(
                 ),
                 const SizedBox(height: 20),
                 const Text(
-                  'Juan Pérez',
+                  'Diego Tolo',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 10),
                 const Text(
-                  'juan@example.com',
+                  'diegoTolo@gmail.com',
                   style: TextStyle(fontSize: 16, color: Colors.grey),
                 ),
                 const SizedBox(height: 30),
@@ -106,13 +108,13 @@ Navigator.pushReplacement(
                         ListTile(
                           leading: Icon(Icons.phone),
                           title: Text('Teléfono'),
-                          subtitle: Text('+34 123 456 789'),
+                          subtitle: Text('+569 3874 4673'),
                         ),
                         Divider(),
                         ListTile(
                           leading: Icon(Icons.location_on),
                           title: Text('Ubicación'),
-                          subtitle: Text('Madrid, España'),
+                          subtitle: Text('Santiago, Chile'),
                         ),
                       ],
                     ),
@@ -122,12 +124,14 @@ Navigator.pushReplacement(
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Theme.of(context).colorScheme.primary,
+                    foregroundColor: Colors.white,
                     padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                    textStyle: const TextStyle(color: Colors.white, fontSize: 18),
                   ),
                   onPressed: () {},
-                  child: const Text('Editar Perfil'),
-                  
+                  child: const Text(
+                    'Editar Perfil',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+                  ),
                 ),
               ],
             ),

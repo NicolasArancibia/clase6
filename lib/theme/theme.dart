@@ -15,6 +15,30 @@ import 'package:flutter/material.dart';
 ///   theme: AppTheme.light,
 ///   darkTheme: AppTheme.dark,
 /// );
+/// @immutable
+class CustomColors extends ThemeExtension<CustomColors> {
+  const CustomColors({
+    required this.azul,
+  });
+
+  final Color? azul;
+
+  @override
+  CustomColors copyWith({Color? azul}) {
+    return CustomColors(
+      azul: azul ?? this.azul,
+    );
+  }
+
+  @override
+  CustomColors lerp(ThemeExtension<CustomColors>? other, double t) {
+    if (other is! CustomColors) return this;
+    return CustomColors(
+      azul: Color.lerp(azul, other.azul, t),
+    );
+  }
+}
+
 abstract final class AppTheme {
   // The FlexColorScheme defined light mode ThemeData.
   static ThemeData light = FlexThemeData.light(
@@ -39,10 +63,16 @@ abstract final class AppTheme {
       inputDecoratorBorderType: FlexInputBorderType.outline,
       alignedDropdown: true,
       navigationRailUseIndicator: true,
+      
     ),
     // Direct ThemeData properties.
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
     cupertinoOverrideTheme: const CupertinoThemeData(applyThemeToAll: true),
+    extensions: const <ThemeExtension<dynamic>>[
+      CustomColors(
+        azul: Color(0xFF1262CC),
+      ),
+    ],
   );
 
   // The FlexColorScheme defined dark mode ThemeData.
@@ -76,5 +106,10 @@ abstract final class AppTheme {
     // Direct ThemeData properties.
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
     cupertinoOverrideTheme: const CupertinoThemeData(applyThemeToAll: true),
+    extensions: const <ThemeExtension<dynamic>>[
+      CustomColors(
+        azul: Color(0xFF1262CC),
+      ),
+    ],
   );
 }
