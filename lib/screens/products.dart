@@ -1,10 +1,7 @@
-import 'package:clase6/screens/prueba.dart';
+import 'package:clase6/screens/app1/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:clase6/screens/detail_product.dart';
-import 'package:clase6/screens/prueba2.dart';
-import 'package:clase6/screens/perfil.dart';
-import 'package:clase6/screens/map_screen.dart';
 
 class ProductsScreen extends StatefulWidget {
   const ProductsScreen({super.key});
@@ -19,34 +16,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
 
   final List<String> categories = ['Electrónica', 'Línea Blanca', 'Jardín', 'Otros'];
 
-  int _currentIndex = 2;
-
-  void _onTabTapped(int index) {
-    if (index == 0) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => const Prueba()),
-      );
-    } else if (index == 1) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => const Perfil()),
-      );
-    } else if (index == 2) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => const ProductsScreen()),
-      );
-    }else if (index == 3) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => const Prueba2()),
-      );
-    } 
-     else {
-      setState(() => _currentIndex = index);
-    }
-  }
+ 
 
   void _addProduct(BuildContext context) async {
     final titleController = TextEditingController();
@@ -252,7 +222,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const MapScreen()),
+              MaterialPageRoute(builder: (context) => const ProductsScreen()),
             );
           },
         ),
@@ -267,7 +237,7 @@ class _ProductsScreenState extends State<ProductsScreen> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const MapScreen()),
+                MaterialPageRoute(builder: (context) => const ProductsScreen()),
               );
             },
           ),
@@ -372,18 +342,6 @@ class _ProductsScreenState extends State<ProductsScreen> {
             },
           );
         },
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: _onTabTapped,
-        selectedItemColor: Theme.of(context).colorScheme.primary,
-        unselectedItemColor: Colors.grey,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.map), label: 'Mapa'),
-          BottomNavigationBarItem(icon: Icon(Icons.face), label: 'Perfil'),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Buscar'),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Ajustes'),
-        ],
       ),
     );
   }
