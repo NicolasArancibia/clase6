@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:clase6/screens/app1/appbar.dart';
 class Mapa extends StatefulWidget {
   const Mapa({super.key});
 
@@ -11,13 +11,13 @@ class _MapaState extends State<Mapa> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Mapa'),
-        centerTitle: true,
-      ),
+            appBar: const Appbar(),
+
       body: const Center(
         child: Text('Contenido del Mapa'),
       ),
+            
     );
+    
   }
 }

@@ -1,3 +1,4 @@
 {
-    "r.lsp.promptToInstall": false
+    "r.lsp.promptToInstall": false,
+    "dart.flutterSdkPath": "C:\\flutter\\flutter"
 }

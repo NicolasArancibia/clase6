@@ -1,4 +1,3 @@
-import 'package:clase6/screens/app1/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:clase6/screens/detail_product.dart';

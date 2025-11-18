@@ -1,4 +1,3 @@
-import 'package:clase6/screens/app1/1mapa.dart';
 import 'package:clase6/screens/app1/4configuracion.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -9,7 +8,7 @@ import 'package:clase6/screens/splashscreen.dart';
 import 'package:clase6/screens/login.dart';
 import 'package:clase6/theme/theme.dart';
 import 'package:clase6/screens/app1/navbar.dart';
-
+import 'package:clase6/screens/app1/appbar.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -51,6 +50,7 @@ class MainApp extends StatelessWidget {
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
+  // ignore: unused_element
   void _signOut(BuildContext context) async {
     await GoogleSignIn.instance.signOut();
     await FirebaseAuth.instance.signOut();
@@ -65,27 +65,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.logout, color: Color.fromARGB(255, 0, 0, 0)),
-
-            onPressed: () => _signOut(context),
-          ),
-        ],
-      ),
       body: const Configuracion(),
+      bottomNavigationBar: const NavBar(),
 
+     
     );
 
-  @override
-  Widget build(BuildContext context) {
-    // Devolvemos NavBar para que muestre la barra de navegación y las diferentes pantallas.
-    return const NavBar();
-  }
-
 }}
-
-
-
- 

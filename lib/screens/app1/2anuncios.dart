@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:clase6/screens/app1/appbar.dart';
 
 class Anuncios extends StatefulWidget {
   const Anuncios({super.key});
@@ -11,10 +12,8 @@ class _AnunciosState extends State<Anuncios> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Anuncios'),
-        centerTitle: true,
-      ),
+            appBar: const Appbar(),
+
       body: const Center(
         child: Text('Contenido de Anuncios'),
       ),

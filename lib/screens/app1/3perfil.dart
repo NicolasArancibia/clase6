@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:clase6/screens/chats.dart';
+import 'package:clase6/screens/app1/appbar.dart';
 
 class Perfil extends StatefulWidget {
   const Perfil({super.key});
@@ -12,10 +13,8 @@ class _PerfilState extends State<Perfil> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Perfil'),
-        centerTitle: true,
-      ),
+            appBar: const Appbar(),
+
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
