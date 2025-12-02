@@ -50,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: AnimatedOpacity(
           duration: const Duration(milliseconds: 500),
           opacity: opacity,
-          child: Column(
+          child: const Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image(

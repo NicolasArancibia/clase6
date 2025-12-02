@@ -4,7 +4,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:clase6/screens/login.dart';
 
 class Appbar extends StatelessWidget implements PreferredSizeWidget {
-  const Appbar({super.key});
+  final String title;
+  const Appbar({super.key, required this.title});
 
   void _signOut(BuildContext context) async {
     await GoogleSignIn.instance.signOut();
@@ -20,17 +21,18 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const Text('Mi Aplicación'),
-      centerTitle: true,
       backgroundColor: Theme.of(context).colorScheme.primary,
       foregroundColor: Theme.of(context).colorScheme.onPrimary,
+      leadingWidth: 80,
+      leading: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Image.asset('assets/images/LogoApp.png', fit: BoxFit.contain),
+      ),
+      title: Text(title),
+      centerTitle: true,
       actions: [
         IconButton(
           icon: const Icon(Icons.logout),
-          onPressed: () => _signOut(context),
-        ),
-        IconButton(
-          icon: const Icon(Icons.person),
           onPressed: () => _signOut(context),
         ),
       ],

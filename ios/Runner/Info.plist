@@ -49,5 +49,11 @@
 	<string>Esta aplicación necesita acceso a tu ubicación</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Esta aplicación necesita acceso a tu ubicación</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Usamos la cámara para subir imágenes de anuncios</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Accedemos a la galería para seleccionar imágenes</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Necesitamos permiso para guardar imágenes</string>
 </dict>
 </plist>

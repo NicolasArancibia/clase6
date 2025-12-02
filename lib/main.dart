@@ -8,7 +8,6 @@ import 'package:clase6/screens/splashscreen.dart';
 import 'package:clase6/screens/login.dart';
 import 'package:clase6/theme/theme.dart';
 import 'package:clase6/screens/app1/navbar.dart';
-import 'package:clase6/screens/app1/appbar.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,9 +16,9 @@ Future<void> main() async {
     await Firebase.initializeApp(
       options: const FirebaseOptions(
         apiKey: "AIzaSyCq7zY99Ys4JZpLgtBkDusBuJ7qIAdGzjc",
-  authDomain: "app1-eed04.firebaseapp.com",
-  projectId: "app1-eed04",
-  storageBucket: "app1-eed04.firebasestorage.app",
+    authDomain: "app1-eed04.firebaseapp.com",
+    projectId: "app1-eed04",
+    storageBucket: "app1-eed04.firebasestorage.app",
   messagingSenderId: "973044396365",
   appId: "1:973044396365:web:7a27986e012adede0ac704"
       ),
@@ -64,9 +63,9 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: const Configuracion(),
-      bottomNavigationBar: const NavBar(),
+    return const Scaffold(
+      body: Configuracion(),
+      bottomNavigationBar: NavBar(),
 
      
     );

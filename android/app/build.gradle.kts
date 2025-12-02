@@ -43,3 +43,8 @@ android {
 flutter {
     source = "../.."
 }
+
+// Suprimir warnings sobre opciones obsoletas (por ejemplo: source/target 8)
+tasks.withType<org.gradle.api.tasks.compile.JavaCompile> {
+    options.compilerArgs.add("-Xlint:-options")
+}

@@ -1,4 +1,34 @@
 {
     "r.lsp.promptToInstall": false,
-    "dart.flutterSdkPath": "C:\\flutter\\flutter"
+    "dart.flutterSdkPath": "C:\\flutter\\flutter",
+    // Excluir carpetas grandes/ generadas para evitar que VS Code las indexe o vigile
+    "files.watcherExclude": {
+        "**/build/**": true,
+        "**/.dart_tool/**": true,
+        "**/.gradle/**": true,
+        "**/android/.gradle/**": true,
+        "**/.idea/**": true,
+        "**/.pub-cache/**": true,
+        "**/ios/Pods/**": true,
+        "**/windows/**": true
+    },
+    "search.exclude": {
+        "**/build/**": true,
+        "**/.dart_tool/**": true,
+        "**/.gradle/**": true,
+        "**/.idea/**": true
+    },
+    "files.exclude": {
+        "**/build": true,
+        "**/.dart_tool": true,
+        "**/.gradle": true,
+        "**/.idea": true
+    },
+    // Evita que el analizador de Dart analice carpetas generadas
+    "dart.analysisExcludedFolders": [
+        "${workspaceFolder}/build",
+        "${workspaceFolder}/.dart_tool",
+        "${workspaceFolder}/.gradle",
+        "${workspaceFolder}/android/.gradle"
+    ]
 }
