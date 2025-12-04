@@ -257,9 +257,11 @@ class _MapaScreenState extends State<MapaScreen> {
               onPressed: () => Navigator.pop(context),
               child: const Text('Cancelar')),
           ElevatedButton(
-            onPressed: () {
-              Navigator.pop(context);
-              _submitEmergency();
+            onPressed: () async {
+              await _submitEmergency();
+              if (mounted) {
+                Navigator.pop(context);
+              }
             },
             child: const Text('ENVIAR'),
           ),
@@ -294,12 +296,23 @@ class _MapaScreenState extends State<MapaScreen> {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-              content: Text('🚨 Emergencia enviada (Simulada cerca)'),
-              backgroundColor: Colors.green),
+            content: Text('✅ ¡Emergencia enviada correctamente!'),
+            backgroundColor: Color(0xFF1565C0),
+            duration: Duration(seconds: 4),
+          ),
         );
       }
     } catch (e) {
       debugPrint("Error: $e");
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Error al enviar emergencia: $e'),
+            backgroundColor: Colors.red,
+            duration: const Duration(seconds: 4),
+          ),
+        );
+      }
     }
   }
 

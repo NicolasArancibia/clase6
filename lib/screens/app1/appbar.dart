@@ -26,7 +26,7 @@ class Appbar extends StatelessWidget implements PreferredSizeWidget {
       leadingWidth: 80,
       leading: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Image.asset('assets/images/LogoApp.png', fit: BoxFit.contain),
+        child: Image.asset('assets/images/LogoAppOut.png', fit: BoxFit.contain),
       ),
       title: Text(title),
       centerTitle: true,

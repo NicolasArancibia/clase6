@@ -47,3 +47,4 @@ flutter:
   assets:
     - assets/
     - assets/images/LogoApp.png
+    - assets/images/LogoAppOut.png

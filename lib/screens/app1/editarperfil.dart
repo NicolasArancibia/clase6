@@ -80,7 +80,16 @@ class _EditarPerfilState extends State<EditarPerfil> {
       );
 
       if (mounted) {
-        Navigator.pop(context, true);
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('✅ ¡Perfil actualizado correctamente!'),
+            backgroundColor: Color(0xFF1565C0),
+            duration: Duration(seconds: 4),
+          ),
+        );
+        Future.delayed(const Duration(milliseconds: 500), () {
+          if (mounted) Navigator.pop(context, true);
+        });
       }
     } catch (e) {
       debugPrint("Error guardando perfil: $e");

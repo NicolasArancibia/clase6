@@ -9,6 +9,9 @@ import 'package:clase6/screens/login.dart';
 import 'package:clase6/theme/theme.dart';
 import 'package:clase6/screens/app1/navbar.dart';
 
+// GlobalKey para acceder al estado de la app desde cualquier lugar
+final GlobalKey<MainAppState> mainAppKey = GlobalKey();
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -28,11 +31,24 @@ Future<void> main() async {
     if (e.code != 'duplicate-app') rethrow;
   }
 
-  runApp(const MainApp());
+  runApp(MainApp(key: mainAppKey));
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends StatefulWidget {
   const MainApp({super.key});
+
+  @override
+  State<MainApp> createState() => MainAppState();
+}
+
+class MainAppState extends State<MainApp> {
+  ThemeMode _themeMode = ThemeMode.system;
+
+  void setThemeMode(ThemeMode themeMode) {
+    setState(() {
+      _themeMode = themeMode;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +56,7 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
-      themeMode: ThemeMode.system,
+      themeMode: _themeMode,
       home: const SplashScreen(),
     );
   }

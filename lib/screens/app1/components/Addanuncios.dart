@@ -102,7 +102,7 @@ class _AddanunciosState extends State<Addanuncios> {
     String? imageUrl;
     if (_pickedImage != null) {
       imageUrl = await _uploadFile(_pickedImage!);
-      if (imageUrl == null) return; // error al subir
+      if (imageUrl == null) return; 
     }
 
     final user = FirebaseAuth.instance.currentUser;
@@ -117,8 +117,16 @@ class _AddanunciosState extends State<Addanuncios> {
     try {
       await FirebaseFirestore.instance.collection('anuncios').add(anuncioDoc);
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Anuncio creado correctamente')));
-        Navigator.of(context).pop();
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('✅ ¡Anuncio publicado correctamente!'),
+            backgroundColor: Color(0xFF1565C0),
+            duration: Duration(seconds: 4),
+          ),
+        );
+        Future.delayed(const Duration(milliseconds: 500), () {
+          if (mounted) Navigator.of(context).pop();
+        });
       }
     } catch (e) {
       debugPrint('Error guardando anuncio: $e');
